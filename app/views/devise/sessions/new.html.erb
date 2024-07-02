@@ -1,26 +1,56 @@
-<h2>Log in</h2>
+<section class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <%# Product Logo & Name %>
+  <%= render "shared/logo" %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%# Form %>
+  <div class="form-layout">
+    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%# Heading %>
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Sign in to your account</h1>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="space-y-4 md:space-y-6">
+
+          <%# Email %>
+          <div class="field">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, autocomplete: "email", placeholder: "name@company.com", class: "form-input" %>
+          </div>
+
+          <%# Password %>
+          <div class="field">
+            <%= f.label :password, class: "form-label" %>
+            <%= f.password_field :password, autocomplete: "current-password", placeholder: "******", class: "form-input" %>
+          </div>
+
+          <%# Remember ME %>
+          <% if devise_mapping.rememberable? %>
+            <div class="field flex items-start">
+              <div class="flex items-center h-5">
+                <%= f.check_box :remember_me, class: "form-checkbox" %>
+              </div>
+
+              <div class="ml-3 text-sm">
+                <%= f.label :remember_me, class: "font-light text-secondary-900 dark:text-secondary-100" %>
+              </div>
+            </div>
+          <% end %>
+
+          <%# Submit %>
+          <div class="actions">
+            <%= f.submit "Log in", data: {turbo_submits_with: "Logging in..."}, class: "form-submit" %>
+          </div>
+        </div>
+      <%  end  %>
+
+      <hr class="divider">
+
+        <%# Other resources %>
+        <%= render "devise/shared/links" %>
+
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

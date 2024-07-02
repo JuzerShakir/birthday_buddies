@@ -1,25 +1,40 @@
-<h2>Change your password</h2>
+<section class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+  <%# Product Logo & Name %>
+  <%= render "shared/logo" %>
 
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+  <%# Form %>
+  <div class="form-layout p-6 sm:p-8">
+
+    <%# Heading %>
+    <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Change password</h1>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="mt-4 space-y-4 lg:mt-5 md:space-y-5">
+
+    <%# Validation Errors %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <%# Password %>
+    <div class="field">
+      <%= f.label :password, "New password", class: "form-label" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "••••••••", class: "form-input" %>
+      <% if @minimum_password_length %>
+        <em class="mt-1 text-sm font-thin text-slate-700 dark:text-slate-300">(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+    </div>
+
+    <%# Password Confirmation %>
+    <div class="field">
+      <%= f.label :password_confirmation,  "Confirm new password", class: "form-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "••••••••", class:"form-input" %>
+    </div>
+
+    <%# Submit  %>
+    <div class="actions">
+      <%= f.submit "Change my password", data: {turbo_submits_with: "Changing..."}, class: "form-submit" %>
+    </div>
+  <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

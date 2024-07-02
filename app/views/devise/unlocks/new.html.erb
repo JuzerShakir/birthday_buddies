@@ -1,16 +1,39 @@
-<h2>Resend unlock instructions</h2>
+<section class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
 
-<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%# Product Logo & Name %>
+  <%= render "../shared/links.html.erb" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%# Form %>
+  <div class="w-full bg-primary-100 rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-secondary-700">
+    <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+
+      <%# Heading %>
+      <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Resend unlock instructions</h1>
+
+      <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <div class="space-y-4 md:space-y-6">
+
+          <%# Validation Error Messages %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+
+          <%# Email %>
+          <div class="field">
+            <%= f.label :email, class: "form-label" %>
+            <%= f.email_field :email, autocomplete: "email", placeholder: "name@company.com", class: "form-input" %>
+          </div>
+
+          <%# Submit %>
+          <div class="actions">
+            <%= f.submit "Resend unlock instructions", data: {turbo_submits_with: "Sending..."}, class: "form-submit" %>
+          </div>
+        </div>
+      <%  end %>
+
+      <%# divider %>
+      <hr class="divider">
+
+      <%# Other resources %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend unlock instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>

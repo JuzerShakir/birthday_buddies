@@ -1,29 +1,66 @@
-<h2>Sign up</h2>
+<section class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%# Product Logo & Name %>
+    <%= render "shared/logo" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <%# Form %>
+    <div class="form-layout">
+      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+        <%# Heading %>
+        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Create an account</h1>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <div class="space-y-4 md:space-y-6">
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+            <%#   Validation Error Messages %>
+            <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= render "devise/shared/links" %>
+            <%# Email field %>
+            <div class="field">
+              <%= f.label :email, class: "form-label" %>
+              <%= f.email_field :email, autocomplete: "email", placeholder:"name@company.com", class: "form-input" %>
+            </div>
+
+            <%# Password %>
+            <div class="field">
+              <%= f.label :password, class: "form-label" %>
+              <%= f.password_field :password, autocomplete: "new-password", placeholder: "••••••••", class: "form-input" %>
+              <% if @minimum_password_length %>
+                <em class="mt-1 text-sm font-thin text-primary-800 dark:text-primary-100">(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+            </div>
+
+            <%# Password Confirmation %>
+            <div class="field">
+              <%= f.label :password_confirmation, class: "form-label" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "••••••••", class: "form-input" %>
+            </div>
+
+            <%# Remember me %>
+            <% if devise_mapping.rememberable? %>
+              <div class="field flex items-start">
+                <div class="flex items-center h-5">
+                  <%= f.check_box :remember_me, class: "form-checkbox" %>
+                </div>
+
+                <div class="ml-3 text-sm">
+                  <%= f.label :remember_me, class: "font-light text-secondary-900 dark:text-secondary-100" %>
+                </div>
+              </div>
+            <% end %>
+
+            <%# Submit %>
+            <div class="actions">
+              <%= f.submit "Create an account", data: { turbo_submits_with: "Creating..."}, class: "form-submit" %>
+            </div>
+          </div>
+        <% end %>
+
+        <hr class="divider">
+
+        <%# Other resources %>
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+</section>

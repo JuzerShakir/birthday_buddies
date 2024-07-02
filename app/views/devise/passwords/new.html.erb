@@ -1,16 +1,37 @@
-<h2>Forgot your password?</h2>
+<section class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%# Product Logo & Name %>
+  <%= render "shared/logo" %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%# Form %>
+  <div class="form-layout p-6 sm:p-8">
+
+    <%# Heading %>
+    <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Forgot your password?</h1>
+
+    <p class="font-light text-gray-500 dark:text-gray-400">Don't fret! Just type in your email and we will send you a link to reset your password!</p>
+
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+      <div class="mt-4 space-y-4 lg:mt-5 md:space-y-5">
+
+        <%# Validation Errors %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <%# Email %>
+        <div class="field">
+          <%= f.label :email, class: "form-label" %>
+          <%= f.email_field :email, autocomplete: "email", placeholder: "name@company.com", class: "form-input" %>
+        </div>
+
+        <%# Submit %>
+        <div class="actions">
+          <%= f.submit "Send me reset password instructions", data: {turbo_submits_with: "Sending..."}, class: "form-submit" %>
+        </div>
+      </div>
+    <% end %>
+
+    <hr class="divider my-6">
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</section>
