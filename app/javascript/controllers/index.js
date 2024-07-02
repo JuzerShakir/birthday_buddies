@@ -4,5 +4,5 @@
 
 import { application } from "./application";
 
-import Notification from "@stimulus-components/notification";
-application.register("flash", Notification);
+import DialogController from "./dialog_controller";
+application.register("dialog", DialogController);
