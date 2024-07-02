@@ -6,3 +6,6 @@ import { application } from "./application";
 
 import DialogController from "./dialog_controller";
 application.register("dialog", DialogController);
+
+import Dropdown from "@stimulus-components/dropdown";
+application.register("dropdown", Dropdown);
