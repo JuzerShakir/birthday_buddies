@@ -4,7 +4,7 @@ module FlashHelper
     when "notice"
       "bg-green-50 text-green-500 dark:bg-gray-900 dark:text-lime-600 dark:backdrop-blur-xl"
     when "alert"
-      "bg-amber-50 text-amber-500 dark:bg-gray-900"
+      "bg-amber-100 text-amber-500 dark:bg-gray-900"
     end
   end
 
