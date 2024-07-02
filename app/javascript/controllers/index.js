@@ -9,3 +9,6 @@ application.register("dialog", DialogController);
 
 import Dropdown from "@stimulus-components/dropdown";
 application.register("dropdown", Dropdown);
+
+import Notification from "@stimulus-components/notification";
+application.register("flash", Notification);
