@@ -1,0 +1,32 @@
+<dialog data-dialog-target="deleteModal" class="dark:bg-gray-800 bg-primary-100 rounded-lg shadow backdrop:backdrop-blur-sm text-center space-y-4 md:space-y-5 lg:space-y-6 p-4 sm:p-5">
+  <!-- Close Button-->
+  <button data-action="click->dialog#close" class="text-primary-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-primary-200 hover:text-primary-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-primary-600 dark:hover:text-primary-200" data-modal-toggle="deleteModal">
+    <%= render "shared/svg/x_mark", classes: "size-5" %>
+  </button>
+
+  <%# Delete Icon %>
+  <div class="size-11 md:size-12 lg:size-13 mx-auto">
+    <%= render "shared/svg/dustbin" %>
+  </div>
+
+  <%# Confirmation Message %>
+  <p class="text-gray-500 dark:text-gray-300 md:text-lg lg:text-xl"><%= message %></p>
+
+  <%# Action %>
+  <div class="flex justify-center items-center space-x-4">
+    <%#  Cancel Button %>
+    <form>
+      <button formmethod="dialog" class="py-2 px-3 lg:py-3 lg:px-4 md:text-lg lg:text-xl font-medium rounded-lg border focus:ring-4 focus:outline-none  focus:z-10 focus:ring-primary-300 text-primary-500 bg-white border-primary-200 hover:bg-secondary-100 hover:text-primary-900 dark:bg-gray-700 dark:text-primary-100 dark:border-secondary-500 dark:hover:text-primary-50 dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+          No, cancel
+      </button>
+    </form>
+
+    <%# Delete Account  Button %>
+    <%= button_to "Yes, I'm sure!",
+      destroy_path,
+      method: :delete,
+      data: {"turbo_frame": "_top", "turbo_submits_with": "Deleting..."},
+      class: "py-2 px-3 lg:py-3 lg:px-4 md:text-lg lg:text-xl font-medium text-center text-white bg-red-500 dark:bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300"
+    %>
+  </div>
+</dialog>
