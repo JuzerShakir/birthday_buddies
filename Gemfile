@@ -69,3 +69,5 @@ gem "annotate", "~> 3.2"
 gem "devise", "~> 4.9"
 
 gem "litestack", "~> 0.4.4"
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
