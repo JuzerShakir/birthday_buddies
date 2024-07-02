@@ -18,10 +18,16 @@
   </head>
 
   <body class="font-sans dark:text-gray-300 bg-primary-50 dark:bg-gray-900 selection:bg-secondary-200 selection:text-primary-900 dark:selection:bg-primary-200 dark:selection:text-primary-800">
+    <%#* Top Navbar for Medium or higher screen size %>
+    <%= render "shared/top_navbar" %>
+
     <%= render "shared/flash" %>
 
     <main>
       <%= yield %>
     </main>
+
+    <%#* Bottom Navbar for Mobile Screen %>
+    <%= render "shared/bottom_navbar" %>
   </body>
 </html>
