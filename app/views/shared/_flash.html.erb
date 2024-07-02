@@ -1,0 +1,30 @@
+<%= turbo_frame_tag "flash_msg" do %>
+    <% flash.each do |type, message| %>
+        <div
+            class="fixed top-0 right-0 left-0 z-50 transition transform duration-500 flex justify-between text-sm lg:text-base p-3 <%= css_class_for_flash(type) %>"
+            role="alert"
+            data-turbo-temporary
+            data-controller="flash"
+            data-flash-delay-value="<%= delay_flash(message) %>"
+            data-transition-enter-from="opacity-0 -translate-y-6"
+            data-transition-enter-to="opacity-100 translate-y-0"
+            data-transition-leave-from="opacity-100 translate-y-0"
+            data-transition-leave-to="opacity-0 -translate-y-6"
+        >
+            <div class="flex-1 grid gap-2 grid-flow-col place-content-center">
+                <%# flash svg icon %>
+                <div class="flex items-center">
+                    <%= icon_for_flash(type) %>
+                </div>
+
+                <%# flash message %>
+                <p class="text-lg md:text-xl font-semibold"><%= message %></p>
+            </div>
+
+            <%# close svg button %>
+            <button class="ml-2" data-action="flash#hide">
+                <%= render "shared/svg/x_mark", classes: "size-5 md:size-6" %>
+            </button>
+        </div>
+    <% end %>
+<% end %>
