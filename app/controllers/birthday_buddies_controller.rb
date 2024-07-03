@@ -10,9 +10,12 @@ class BirthdayBuddiesController < ApplicationController
     @birthday_buddy = current_user.birthday_buddies.new(birthday_buddy_params)
     p birthday_buddy_params
 
-    if @birthday_buddy.save
-    else
-      render :index, status: :unprocessable_entity
+    respond_to do |format|
+      if @birthday_buddy.save
+        format.html { redirect_to birthday_buddies_path, notice: "Birthdate created" }
+      else
+        format.html { render :index, status: :unprocessable_entity }
+      end
     end
   end
 
