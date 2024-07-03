@@ -1,0 +1,8 @@
+<%= form_with( model: buddy, class:"", data: { controller: "flatpickr"} ) do |form| %>
+  <%= form.text_field :first_name, placeholder: "Juzer", class: "form-input" %>
+  <%= form.text_field :last_name, placeholder: "Shakir", class: "form-input" %>
+  <%= form.date_field :gregorian_birthday,  class: "form-input gregorian-date" %>
+
+
+  <%= form.submit "Add", data: {turbo_submits_with: "Adding..."}, class: "form-submit w-auto" %>
+<% end %>
