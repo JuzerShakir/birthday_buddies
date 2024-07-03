@@ -20,4 +20,13 @@
 #
 class BirthdayBuddy < ApplicationRecord
   belongs_to :user
+
+  validates_presence_of :first_name, :last_name, :gregorian_birthday
+  validate :gregorian_birthday_cannot_be_in_future, if: :will_save_change_to_gregorian_birthday?
+
+  private
+  # * Custom Validation Methods
+  def gregorian_birthday_cannot_be_in_future
+    errors.add(:gregorian_birthday, "cannot be in future") if gregorian_birthday.future?
+  end
 end
