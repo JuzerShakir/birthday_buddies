@@ -3,12 +3,11 @@ class BirthdayBuddiesController < ApplicationController
 
   def index
     @birthday_buddies = current_user.birthday_buddies
-    @birthday_buddy = current_user.birthday_buddies.new
+    @birthday_buddy = BirthdayBuddy.new
   end
 
   def create
     @birthday_buddy = current_user.birthday_buddies.new(birthday_buddy_params)
-    p birthday_buddy_params
 
     respond_to do |format|
       if @birthday_buddy.save

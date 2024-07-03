@@ -5,3 +5,17 @@
   <%# New birthday_buddy form %>
   <%= render "form", buddy: @birthday_buddy %>
 </section>
+
+<%# divider %>
+<hr class="divider">
+
+<%# Birthdays %>
+<% if @birthday_buddies.present? %>
+  <article data-controller="dialog" class= "w-full sm:max-w-md lg:max-w-lg grid justify-items-stretch gap-5">
+    <h2 class="font-semibold text-xl md:text-2xl text-center text-primary-950 dark:text-primary-100">🎂&nbsp;&nbsp;Upcoming birthdays! &nbsp;&nbsp;🎉</h2>
+
+    <div id="birthday_buddies" class="grid gap-4">
+      <%= render @birthday_buddies %>
+    </div>
+  </article>
+<% end %>
