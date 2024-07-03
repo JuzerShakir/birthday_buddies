@@ -1,8 +1,19 @@
-<%= form_with( model: buddy, class:"", data: { controller: "flatpickr"} ) do |form| %>
-  <%= form.text_field :first_name, placeholder: "Juzer", class: "form-input" %>
-  <%= form.text_field :last_name, placeholder: "Shakir", class: "form-input" %>
-  <%= form.date_field :gregorian_birthday,  class: "form-input gregorian-date" %>
+<%# Form %>
+<%= form_with( model: buddy, data: { controller: "flatpickr"}, class: "grid gap-5" ) do |f| %>
 
+  <div class="flex gap-5 ">
+    <%# first_name field %>
+    <%= f.text_field :first_name, placeholder: "First Name", class: "form-input" %>
 
-  <%= form.submit "Add", data: {turbo_submits_with: "Adding..."}, class: "form-submit w-auto" %>
+    <%# last_name %>
+    <%= f.text_field :last_name, placeholder: "Last Name", class: "form-input" %>
+  </div>
+
+  <div class="flex gap-5">
+    <%# gregorian_birthday %>
+    <%= f.date_field :gregorian_birthday, placeholder: "Date Of Birth",  class: "form-input gregorian-date" %>
+
+    <%# Submit %>
+    <%= f.submit "Create", data: {turbo_submits_with: "Creating..."}, class: "form-submit w-auto" %>
+  </div>
 <% end %>
