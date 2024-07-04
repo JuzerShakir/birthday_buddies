@@ -13,6 +13,7 @@ class BirthdayBuddiesController < ApplicationController
       if @birthday_buddy.save
         format.html { redirect_to birthday_buddies_path, notice: "Birthdate created" }
       else
+        # TODO: load @birthday_bounties
         format.html { render :index, status: :unprocessable_entity }
       end
     end
