@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  devise_for :users, controllers: { confirmations: 'users/confirmations' }
+  devise_for :users, controllers: { confirmations: 'users/confirmations', registrations: 'users/registrations' }
 
   resources :birthday_buddies, except: [:new, :show]
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
