@@ -29,5 +29,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :birthday_buddies, dependent: :destroy
+  has_person_name
+
   broadcasts_refreshes
 end

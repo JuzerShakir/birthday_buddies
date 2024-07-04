@@ -71,3 +71,5 @@ gem "devise", "~> 4.9"
 gem "litestack", "~> 0.4.4"
 
 gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "name_of_person", "~> 1.1"
