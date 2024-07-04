@@ -7,8 +7,11 @@ import { application } from "./application";
 import DialogController from "./dialog_controller";
 application.register("dialog", DialogController);
 
+import Notification from "@stimulus-components/notification";
+application.register("flash", Notification);
+
 import Dropdown from "@stimulus-components/dropdown";
 application.register("dropdown", Dropdown);
 
-import Notification from "@stimulus-components/notification";
-application.register("flash", Notification);
+import FlatpickrController from "./flatpickr_controller";
+application.register("flatpickr", FlatpickrController);

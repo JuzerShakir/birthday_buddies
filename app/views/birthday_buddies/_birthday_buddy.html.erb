@@ -1,0 +1,22 @@
+<turbo-frame id="<%= dom_id birthday_buddy %>" target= '_top'  class="flex justify-between gap-5 md:gap-8">
+  <%# Full Name %>
+  <p class="w-full flex items-center justify-between">
+    <span class="text-xl md:text-2xl text-secondary-900 dark:text-secondary-200">
+      <%= birthday_buddy.first_name %>
+      <%= birthday_buddy.last_name %>
+    </span>
+    <span class="font-light dark:font-extralight italic text-md md:text-lg text-secondary-700 dark:text-secondary-400">In <%= time_ago_in_words(Date.today.next_year) %></span>
+  </p>
+
+  <%# Show Modal %>
+  <button
+    data-modal-toggle="<%= dom_id(birthday_buddy, "show") %>"
+    data-action= "click->dialog#openShowModal"
+    class="form-submit w-auto px-3.5 py-2 md:px-5"
+  >
+  Show
+  </button>
+
+  <%= render "show_dialog", birthday_buddy: birthday_buddy %>
+</turbo-frame>
+

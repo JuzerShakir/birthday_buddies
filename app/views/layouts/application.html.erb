@@ -10,6 +10,10 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_orange.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <%# Favicon Ico %>
     <%= favicon_link_tag asset_path("favicon.ico") %>
 
@@ -26,7 +30,7 @@
 
     <%= render "shared/flash" %>
 
-    <main>
+    <main class="grid gap-10 lg:gap-16 justify-items-center p-5">
       <%= yield %>
     </main>
 
