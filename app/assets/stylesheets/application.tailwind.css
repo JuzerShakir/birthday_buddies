@@ -36,7 +36,7 @@
 	}
 
 	.form-submit {
-		@apply w-full text-wrap text-secondary-50 font-bold bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg px-5 py-2.5 text-center dark:focus:ring-primary-800 cursor-pointer transition transform duration-500;
+		@apply w-full text-wrap text-sm md:text-lg text-secondary-50 font-bold bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg px-5 py-2.5 text-center dark:focus:ring-primary-800 cursor-pointer transition transform duration-500;
 	}
 
 	.divider {
