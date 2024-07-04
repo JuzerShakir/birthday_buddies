@@ -32,4 +32,8 @@ class User < ApplicationRecord
   has_person_name
 
   broadcasts_refreshes
+
+  def get_name_if_available_else_email
+    name ? name.familiar : email
+  end
 end
