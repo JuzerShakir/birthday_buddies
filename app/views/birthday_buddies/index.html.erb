@@ -11,7 +11,7 @@
 
 <%# Birthdays %>
 <% if @birthday_buddies.present? %>
-  <article data-controller="dialog" class= "w-full sm:max-w-md  grid justify-items-stretch gap-8 md:gap-14 mb-16 md:mb-10">
+  <article data-controller="dialog" class= "w-full sm:max-w-md lg:max-w-lg grid justify-items-stretch gap-8 md:gap-14 mb-16 md:mb-10">
     <h2 class="font-semibold text-2xl md:text-3xl tracking-wide text-center text-primary-950 dark:text-primary-100">🎂&nbsp;&nbsp;Upcoming birthdays! &nbsp;&nbsp;🎉</h2>
 
     <%= turbo_stream_from current_user %>
