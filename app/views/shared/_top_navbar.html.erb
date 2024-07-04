@@ -9,45 +9,7 @@
     </div>
 
     <%# Dropdown profile menu %>
-    <div class="flex items-center relative" data-controller="dropdown" >
-        <%# Profile button%>
-        <button type="button" class="flex text-sm bg-primary-200/80 dark:bg-gray-700 rounded-full p-2 me-0 focus:ring-2 focus:ring-primary-800 dark:focus:ring-primary-600" id="user-menu-button" aria-expanded="false" data-action="dropdown#toggle click@window->dropdown#hide">
-          <span class="sr-only">Open user menu</span>
-          <%= render "shared/svg/profile_icon" %>
-        </button>
-
-        <!-- Dropdown menu -->
-        <div
-          id="user-dropdown"
-          class="w-48 lg:w-52 z-50 hidden transition transform absolute origin-top-right right-0 top-10 my-4 text-base list-none bg-primary-100 divide-y divide-secondary-600 rounded-lg shadow-lg dark:bg-gray-700 dark:divide-gray-600"
-          data-dropdown-target="menu"
-          data-transition-enter-from="opacity-0 scale-95"
-          data-transition-enter-to="opacity-100 scale-100"
-          data-transition-leave-from="opacity-100 scale-100"
-          data-transition-leave-to="opacity-0 scale-95"
-        >
-          <div class="px-4 py-3">
-            <span class="block text-sm md:text-lg text-secondary-800/50 truncate dark:text-gray-400"><%= current_user.get_name_if_available_else_email %></span>
-          </div>
-          <ul class="py-2" aria-labelledby="user-menu-button">
-            <li>
-              <%= link_to "Update Profile",
-                edit_user_registration_path,
-                class: "block px-4 py-2 text-secondary-800 hover:bg-primary-200 dark:hover:bg-primary-700 dark:text-gray-200 dark:hover:text-secondary-50",
-                data_action: "dropdown#toggle"
-              %>
-            </li>
-            <li>
-              <%= link_to "Sign out",
-                destroy_user_session_path,
-                'data-turbo-method': :delete,
-                class: "block px-4 py-2 text-red-700 hover:bg-red-200 dark:hover:bg-red-600 dark:text-red-400 dark:hover:text-red-50",
-                data_action: "dropdown#toggle"
-              %>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <%= render "shared/dropdown", dropdown_classes: "origin-top-right right-0 top-10" %>
     </div>
   </nav>
 <% end %>
