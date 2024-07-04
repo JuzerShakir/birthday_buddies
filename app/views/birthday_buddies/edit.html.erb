@@ -11,16 +11,10 @@
         <%# Validation Error Messages %>
         <%= render "devise/shared/error_messages", resource: @birthday_buddy %>
 
-        <%# First Name %>
+        <%# First Name & Last Name %>
         <div class="field">
-          <%= f.label :first_name, class: "form-label" %>
-          <%= f.text_field :first_name, class: "form-input" %>
-        </div>
-
-        <%# Last Name %>
-        <div class="field">
-          <%= f.label :last_name, class: "form-label mb-0" %>
-          <%= f.text_field :last_name, class: "form-input" %>
+          <%= f.label :name, class: "form-label" %>
+          <%= f.text_field :name, class: "form-input" %>
         </div>
 
         <%# Gregorian Birthday %>

@@ -43,6 +43,6 @@ class BirthdayBuddiesController < ApplicationController
 
   private
   def birthday_buddy_params
-    params.require(:birthday_buddy).permit(:first_name, :last_name, :gregorian_birthday)
+    params.require(:birthday_buddy).permit(:name, :gregorian_birthday)
   end
 end
