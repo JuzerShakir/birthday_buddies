@@ -18,6 +18,28 @@ class BirthdayBuddiesController < ApplicationController
     end
   end
 
+  def edit
+    @birthday_buddy = BirthdayBuddy.find(params[:id])
+  end
+
+  def update
+    @birthday_buddy = BirthdayBuddy.find(params[:id])
+
+    respond_to do |format|
+      if @birthday_buddy.update(birthday_buddy_params)
+        format.html { redirect_to birthday_buddies_path, notice: "Details Updated!" }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @birthday_buddy = BirthdayBuddy.find(params[:id])
+    @birthday_buddy.destroy
+    redirect_to birthday_buddies_path, notice: "Birthday Buddy Deleted!"
+  end
+
   private
   def birthday_buddy_params
     params.require(:birthday_buddy).permit(:first_name, :last_name, :gregorian_birthday)
