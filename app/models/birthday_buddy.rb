@@ -20,13 +20,14 @@
 #  user_id  (user_id => users.id)
 #
 class BirthdayBuddy < ApplicationRecord
+  # * Associations
   belongs_to :user, touch: true
-
+  #  * name_of_person
   has_person_name
-
+  # * Validations
   validates_presence_of :first_name, :last_name, :gregorian_birthday
   validate :gregorian_birthday_cannot_be_in_future, if: :will_save_change_to_gregorian_birthday?
-
+  # * Callbacks
   before_save :set_upcoming_gregorian_birthday, if: :will_save_change_to_gregorian_birthday?
 
   private
