@@ -36,7 +36,7 @@
 	}
 
 	.form-input {
-		@apply text-xs sm:text-base md:text-lg lg:text-xl bg-gray-50 border border-secondary-400 text-secondary-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 placeholder:text-secondary-400 dark:bg-gray-700 dark:border-secondary-600 dark:placeholder-secondary-50/50 dark:focus:bg-gray-800 dark:focus:placeholder-secondary-300/30 dark:text-secondary-100 dark:focus:ring-primary-500 dark:focus:border-primary-500;
+		@apply text-sm sm:text-lg bg-gray-50 border border-secondary-400 text-secondary-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 placeholder:text-secondary-400 dark:bg-gray-700 dark:border-secondary-600 dark:placeholder-secondary-50/50 dark:focus:bg-gray-800 dark:focus:placeholder-secondary-300/30 dark:text-secondary-100 dark:focus:ring-primary-500 dark:focus:border-primary-500;
 	}
 
 	.form-checkbox {

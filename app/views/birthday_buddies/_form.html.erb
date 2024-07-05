@@ -7,7 +7,7 @@
 <%= form_with( model: buddy, data: { controller: "flatpickr"}, class: "grid gap-5" ) do |f| %>
 
   <%# first_name & last_name field %>
-  <%= f.text_field :name, placeholder: "Full Name", class: "form-input" %>
+  <%= f.text_field :name, placeholder: "Full Name", class: "form-input sm:text-xl" %>
 
   <div class="flex gap-5">
     <%# gregorian_birthday %>
