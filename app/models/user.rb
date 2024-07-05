@@ -33,7 +33,7 @@ class User < ApplicationRecord
 
   broadcasts_refreshes
 
-  def get_name_if_available_else_email
+  def nickname
     name ? name.familiar : email
   end
 end

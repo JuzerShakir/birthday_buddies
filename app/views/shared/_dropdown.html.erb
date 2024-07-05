@@ -16,7 +16,7 @@
           data-transition-leave-to="opacity-0 scale-95"
         >
           <div class="px-4 py-3">
-            <span class="block text-sm md:text-lg text-secondary-800/50 truncate dark:text-gray-400"><%= current_user.get_name_if_available_else_email %></span>
+            <span class="block text-sm md:text-lg text-secondary-800/50 truncate dark:text-gray-400"><%= current_user.nickname %></span>
           </div>
           <ul class="py-2" aria-labelledby="user-menu-button">
             <li>
