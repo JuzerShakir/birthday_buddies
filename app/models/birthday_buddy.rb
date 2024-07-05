@@ -2,13 +2,14 @@
 #
 # Table name: birthday_buddies
 #
-#  id                 :integer          not null, primary key
-#  first_name         :string           default(""), not null
-#  gregorian_birthday :date             not null
-#  last_name          :string           default(""), not null
-#  created_at         :datetime         not null
-#  updated_at         :datetime         not null
-#  user_id            :integer          not null
+#  id                          :integer          not null, primary key
+#  first_name                  :string           default(""), not null
+#  gregorian_birthday          :date             not null
+#  last_name                   :string           default(""), not null
+#  upcoming_gregorian_birthday :date             not null
+#  created_at                  :datetime         not null
+#  updated_at                  :datetime         not null
+#  user_id                     :integer          not null
 #
 # Indexes
 #
@@ -26,12 +27,15 @@ class BirthdayBuddy < ApplicationRecord
   validates_presence_of :first_name, :last_name, :gregorian_birthday
   validate :gregorian_birthday_cannot_be_in_future, if: :will_save_change_to_gregorian_birthday?
 
-  def upcoming_gregorian_birthday
-    birthday = calculate_birthday_for_current_year(gregorian_birthday)
-    get_upcoming_birthday(birthday)
-  end
+  before_save :set_upcoming_gregorian_birthday, if: :will_save_change_to_gregorian_birthday?
 
   private
+  # callbacks
+  def set_upcoming_gregorian_birthday
+    birthday = calculate_birthday_for_current_year(gregorian_birthday)
+    self.upcoming_gregorian_birthday = get_upcoming_birthday(birthday)
+  end
+
   # Custom helper methods
   def calculate_birthday_for_current_year(date)
     gregorian_birthday.change(year: Date.today.year)
