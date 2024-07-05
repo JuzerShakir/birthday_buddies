@@ -1,13 +1,13 @@
-<section class="flex flex-col items-center justify-center px-6 py-8 mx-auto h-screen lg:py-0">
+<section class="form-page">
 
   <%# Product Logo & Name %>
   <%= render "shared/logo" %>
 
   <%# Form %>
-  <div class="form-layout p-6 sm:p-8">
+  <div class="form-layout">
 
     <%# Heading %>
-    <h1 class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Change password</h1>
+    <h1 class="form-header">Change password</h1>
 
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
     <div class="mt-4 space-y-4 lg:mt-5 md:space-y-5">

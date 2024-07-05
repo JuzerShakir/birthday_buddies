@@ -1,24 +1,24 @@
 <div class="grid gap-3">
   <%- if controller_name != 'sessions' && controller_name != 'passwords' %>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400">Already have an account?
+    <p class="link-label">Already have an account?
       <%= link_to "Login here", new_session_path(resource_name), class: "link" %>
     </p>
   <% end %>
 
   <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400">Don't have an account yet?
+    <p class="link-label">Don't have an account yet?
       <%= link_to "Sign up", new_registration_path(resource_name), class: "link" %>
     </p>
   <% end %>
 
   <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' && controller_name != 'confirmations' %>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400">Forgot password?
+    <p class="link-label">Forgot password?
       <%= link_to "Reset Now", new_password_path(resource_name), class: "link" %>
     </p>
   <% end %>
 
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' && controller_name != 'registrations' && controller_name != 'passwords' %>
-    <p class="text-sm font-light text-gray-500 dark:text-gray-400">Didn't receive unlock instructions?
+    <p class="link-label">Didn't receive unlock instructions?
       <%= link_to "Recieve Now", new_confirmation_path(resource_name) , class: "link" %>
     </p>
   <% end %>

@@ -1,9 +1,9 @@
   <%# Form %>
-<section class="form-layout mt-8 mb-14">
-  <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+<section class="form-page mb-14 md:mb-3 md:mt-8 h-fit">
+  <div class="form-layout">
 
     <%# Heading %>
-    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Edit <%= resource_name.to_s.humanize %></h1>
+    <h1 class="form-header">Edit <%= resource_name.to_s.humanize %></h1>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="space-y-4 md:space-y-6">
@@ -57,23 +57,18 @@
     <% end %>
 
     <%# Back %>
-    <div class="flex justify-center">
-      <%= link_to :back, class: "group flex items-center gap-1 text-primary-600 dark:text-primary-500" do %>
-        <%= render "shared/svg/left_arrow" %>
-        <span class="text-lg font-semibold tracking-wide group-hover:underline group-hover:underline-offset-4">Back</span>
-      <% end %>
-    </div>
+    <%= render "shared/back" %>
 
     <%# divider %>
     <hr class="divider">
 
     <%# Cancel Account %>
     <div data-controller="dialog" class="grid gap-3 justify-items-center">
-      <h3 class="text-lg font-bold leading-tight tracking-tight text-gray-900 md:text-xl dark:text-white">Unhappy? </h3>
+      <h3 class="text-lg sm:text-xl xl:text-2xl font-bold tracking-wide text-gray-900 dark:text-white">Unhappy? </h3>
 
       <button
         data-action="click->dialog#open"
-        class= "py-2 px-3 text-sm font-medium text-center text-white bg-red-500 dark:bg-red-600 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300"
+        class= "form-submit-danger"
       >Cancel my account</button>
 
       <%= render "/shared/destroy_dialog", destroy_path: registration_path(resource_name), message: "Are you sure you want to delete your account?" %>
