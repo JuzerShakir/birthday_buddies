@@ -31,6 +31,8 @@ class BirthdayBuddy < ApplicationRecord
   # * Callbacks
   before_save :set_upcoming_gregorian_birthday, if: :will_save_change_to_gregorian_birthday?
   before_save :set_upcoming_hijri_birthday_in_gregorian, if: :will_save_change_to_gregorian_birthday?
+  # * Helper Methods
+  include HijriHelpers
 
   def hijri_birthday
     hijri_date_of(gregorian_birthday)
@@ -65,14 +67,6 @@ class BirthdayBuddy < ApplicationRecord
   end
 
   # Custom helper methods
-  def hijri_date_of(date)
-    date.tomorrow.to_hijri
-  end
-
-  def gregorian_date_of(date)
-    date.to_greo.yesterday
-  end
-
   def new_hijri_birthdate(year:)
     Hijri::Date.new(year, hijri_birthday.month, hijri_birthday.day)
   end
