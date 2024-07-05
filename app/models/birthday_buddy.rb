@@ -43,7 +43,7 @@ class BirthdayBuddy < ApplicationRecord
     current_hijri_year =  hijri_date_of(Date.today).year
     # create new hijri date with current year
     hijri_birthday_this_year = new_hijri_birthdate(year: current_hijri_year)
-    # convert hijri to gregorian date
+    # since we cannot check if current hijri date is in future or past we need to convert it to gregorian date
     date = gregorian_date_of(hijri_birthday_this_year)
 
     # check if gregorian date of hijri date is in past, if it is then set it in the future
