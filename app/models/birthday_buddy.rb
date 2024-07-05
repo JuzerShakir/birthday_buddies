@@ -30,6 +30,10 @@ class BirthdayBuddy < ApplicationRecord
   # * Callbacks
   before_save :set_upcoming_gregorian_birthday, if: :will_save_change_to_gregorian_birthday?
 
+  def hijri_birthday
+    gregorian_birthday.tomorrow.to_hijri
+  end
+
   private
   # callbacks
   def set_upcoming_gregorian_birthday
