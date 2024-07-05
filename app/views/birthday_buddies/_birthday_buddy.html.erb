@@ -4,7 +4,9 @@
     <span class="w-3/5 text-lg md:text-xl tracking-wider text-secondary-900 dark:text-secondary-200">
       <%= birthday_buddy.name.possessive %>
     </span>
-    <span class="font-light dark:font-extralight italic text-md text-secondary-700 dark:text-secondary-400">In <%= time_ago_in_words(Date.today.next_year) %></span>
+    <span class="font-light dark:font-extralight italic text-md text-secondary-700 dark:text-secondary-400">
+      In <%= time_ago_in_words(birthday_buddy.upcoming_gregorian_birthday) %>
+    </span>
   </p>
 
   <%# Show Modal %>
