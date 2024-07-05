@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_05_055116) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_05_065344) do
   create_table "birthday_buddies", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_05_055116) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "upcoming_gregorian_birthday", null: false
+    t.date "upcoming_hijri_birthday_in_gregorian", null: false
     t.index ["user_id"], name: "index_birthday_buddies_on_user_id"
   end
 
