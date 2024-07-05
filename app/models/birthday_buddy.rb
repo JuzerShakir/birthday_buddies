@@ -48,7 +48,7 @@ class BirthdayBuddy < ApplicationRecord
     if date.future?
       hijri_birthday_this_year
     else
-      Hijri::Date.new(current_hijri_year + 1, hijri_birthday.month, hijri_birthday.day)
+      new_hijri_birthdate(year: current_hijri_year + 1)
     end
   end
 
