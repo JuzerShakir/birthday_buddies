@@ -11,7 +11,7 @@ module FlashHelper
   def icon_for_flash(type)
     case type
     when "notice"
-      render "shared/svg/check_mark", classes: "size-5 md:size-6"
+      render "shared/svg/check_mark", classes: "size-5"
     when "alert"
       render "shared/svg/info"
     end
