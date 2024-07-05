@@ -28,7 +28,7 @@ class BirthdayBuddy < ApplicationRecord
   has_person_name
 
   # * Validations
-  validates_presence_of :first_name, :last_name, :gregorian_birthday, :upcoming_gregorian_birthday, :upcoming_hijri_birthday_in_gregorian
+  validates_presence_of :first_name, :last_name, :gregorian_birthday
   validate :gregorian_birthday_cannot_be_in_future, if: :will_save_change_to_gregorian_birthday?
 
   # * Callbacks
