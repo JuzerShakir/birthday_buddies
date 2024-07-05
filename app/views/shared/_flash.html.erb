@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "flash_msg" do %>
     <% flash.each do |type, message| %>
         <div
-            class="fixed top-0 right-0 left-0 z-50 transition transform duration-750 flex justify-between text-sm p-2.5 <%= css_class_for_flash(type) %>"
+            class="fixed top-0 right-0 left-0 z-50 transition transform duration-1000 flex justify-between p-2.5 <%= css_class_for_flash(type) %>"
             role="alert"
             data-turbo-temporary
             data-controller="flash"
@@ -18,7 +18,7 @@
                 </div>
 
                 <%# flash message %>
-                <p class="text-lg md:text-xl font-semibold"><%= message %></p>
+                <p class="text-sm md:text-lg font-semibold tracking-wide"><%= message %></p>
             </div>
 
             <%# close svg button %>
