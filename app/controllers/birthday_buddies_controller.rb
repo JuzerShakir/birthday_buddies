@@ -2,7 +2,7 @@ class BirthdayBuddiesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @birthday_buddies = current_user.birthday_buddies
+    @birthday_buddies = current_user.birthday_buddies.order(:upcoming_gregorian_birthday)
     @birthday_buddy = BirthdayBuddy.new
   end
 
@@ -13,7 +13,7 @@ class BirthdayBuddiesController < ApplicationController
       if @birthday_buddy.save
         format.html { redirect_to birthday_buddies_path, notice: "Birthdate created" }
       else
-        # TODO: load @birthday_bounties
+        @birthday_buddies = current_user.birthday_buddies.order(:upcoming_gregorian_birthday)
         format.html { render :index, status: :unprocessable_entity }
       end
     end
