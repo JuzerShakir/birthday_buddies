@@ -2,14 +2,15 @@
 #
 # Table name: birthday_buddies
 #
-#  id                          :integer          not null, primary key
-#  first_name                  :string           default(""), not null
-#  gregorian_birthday          :date             not null
-#  last_name                   :string           default(""), not null
-#  upcoming_gregorian_birthday :date             not null
-#  created_at                  :datetime         not null
-#  updated_at                  :datetime         not null
-#  user_id                     :integer          not null
+#  id                                   :integer          not null, primary key
+#  first_name                           :string           default(""), not null
+#  gregorian_birthday                   :date             not null
+#  last_name                            :string           default(""), not null
+#  upcoming_gregorian_birthday          :date             not null
+#  upcoming_hijri_birthday_in_gregorian :date             not null
+#  created_at                           :datetime         not null
+#  updated_at                           :datetime         not null
+#  user_id                              :integer          not null
 #
 # Indexes
 #
@@ -29,25 +30,51 @@ class BirthdayBuddy < ApplicationRecord
   validate :gregorian_birthday_cannot_be_in_future, if: :will_save_change_to_gregorian_birthday?
   # * Callbacks
   before_save :set_upcoming_gregorian_birthday, if: :will_save_change_to_gregorian_birthday?
+  before_save :set_upcoming_hijri_birthday_in_gregorian, if: :will_save_change_to_gregorian_birthday?
 
   def hijri_birthday
-    gregorian_birthday.tomorrow.to_hijri
+    hijri_date_of(gregorian_birthday)
+  end
+
+  def upcoming_hijri_birthday
+    # current hijri year
+    current_hijri_year =  hijri_date_of(Date.today).year
+    # create new hijri date with current year
+    hijri_birthday_this_year = new_hijri_birthdate(year: current_hijri_year)
+    # convert hijri to gregorian date
+    date = gregorian_date_of(hijri_birthday_this_year)
+
+    # check if gregorian date of hijri date is in past, if it is then set it in the future
+    if date.future?
+      hijri_birthday_this_year
+    else
+      Hijri::Date.new(current_hijri_year + 1, hijri_birthday.month, hijri_birthday.day)
+    end
   end
 
   private
+
   # callbacks
   def set_upcoming_gregorian_birthday
-    birthday = calculate_birthday_for_current_year(gregorian_birthday)
-    self.upcoming_gregorian_birthday = get_upcoming_birthday(birthday)
+    birthday = gregorian_birthday.change(year: Date.today.year)
+    self.upcoming_gregorian_birthday =  birthday.future? ? birthday : birthday.next_year
+  end
+
+  def set_upcoming_hijri_birthday_in_gregorian
+    self.upcoming_hijri_birthday_in_gregorian = gregorian_date_of(upcoming_hijri_birthday)
   end
 
   # Custom helper methods
-  def calculate_birthday_for_current_year(date)
-    gregorian_birthday.change(year: Date.today.year)
+  def hijri_date_of(date)
+    date.tomorrow.to_hijri
   end
 
-  def get_upcoming_birthday(date)
-    date.future? ? date : date.next_year
+  def gregorian_date_of(date)
+    date.to_greo.yesterday
+  end
+
+  def new_hijri_birthdate(year:)
+    Hijri::Date.new(year, hijri_birthday.month, hijri_birthday.day)
   end
 
   # * Custom Validation Methods
