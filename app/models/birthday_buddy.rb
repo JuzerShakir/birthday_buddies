@@ -26,7 +26,21 @@ class BirthdayBuddy < ApplicationRecord
   validates_presence_of :first_name, :last_name, :gregorian_birthday
   validate :gregorian_birthday_cannot_be_in_future, if: :will_save_change_to_gregorian_birthday?
 
+  def upcoming_gregorian_birthday
+    birthday = calculate_birthday_for_current_year(gregorian_birthday)
+    get_upcoming_birthday(birthday)
+  end
+
   private
+  # Custom helper methods
+  def calculate_birthday_for_current_year(date)
+    gregorian_birthday.change(year: Date.today.year)
+  end
+
+  def get_upcoming_birthday(date)
+    date.future? ? date : date.next_year
+  end
+
   # * Custom Validation Methods
   def gregorian_birthday_cannot_be_in_future
     errors.add(:gregorian_birthday, "cannot be in future") if gregorian_birthday.future?
