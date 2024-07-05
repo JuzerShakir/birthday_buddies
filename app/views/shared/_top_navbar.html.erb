@@ -1,11 +1,11 @@
 <% if current_user %>
   <nav class=" hidden md:block sticky top-0 z-50 bg-primary-100/50 backdrop-blur-sm dark:bg-gray-900/60">
-    <div class="max-w-screen-sm xl:max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-2">
+    <div class="max-w-screen-sm xl:max-w-screen-lg flex flex-wrap items-center justify-between mx-auto p-2 md:py-3">
 
     <%# Logo %>
     <div class="flex items-center space-x-3 rtl:space-x-reverse">
         <%= image_tag "logo.png", class: "w-8 h-8", alt: "Logo" %>
-        <span class="self-center text-2xl font-semibold whitespace-nowrap bg-gradient-text-clip ">Birthday Threads</span>
+        <span class="self-center text-2xl md:text-3xl font-semibold whitespace-nowrap bg-gradient-text-clip ">Birthday Threads</span>
     </div>
 
     <%# Dropdown profile menu %>
