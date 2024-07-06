@@ -111,7 +111,7 @@ You will need to generate an app password by visiting to 'App Password' in your 
 
 ## 💡 Contributing
 
-If you have problems, please create a [GitHub Issue](https://github.com/JuzerShakir/tickity_tick/issues).
+If you have problems, please create a [GitHub Issue](https://github.com/JuzerShakir/birthday-threads/issues).
 
 Take a look at the [Contributing](CONTRIBUTING.md) document for
 instructions on setting up the repo on your machine, understanding the codebase,
