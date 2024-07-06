@@ -1,4 +1,4 @@
-<dialog id="<%= dom_id(birthday_buddy, "show") %>" data-turbo-temporary class="z-40 w-2/3 sm:w-1/2 lg:max-w-md xl:max-w-lg dark:bg-gray-800 bg-primary-100 rounded-lg shadow backdrop:backdrop-blur-sm space-y-7 md:space-y-8 lg:space-y-9 p-4 lg:p-6 sm:p-5">
+<dialog id="<%= dom_id(birthday_buddy, "show") %>" data-turbo-temporary class="z-40 w-2/3 sm:w-1/2 lg:max-w-md xl:max-w-lg dark:bg-gray-800 bg-primary-100 border-2 border-primary-400 dark:border-secondary-500 rounded-lg shadow backdrop:backdrop-blur-sm space-y-7 md:space-y-8 lg:space-y-9 p-7 md:p-9">
   <%# Header %>
   <div class="flex justify-between mb-4 rounded-t sm:mb-5">
     <%# Heading %>
@@ -12,8 +12,8 @@
     </div>
 
     <!-- Close Button-->
-    <button data-action="click->dialog#closeShowModal" data-modal-toggle="<%= dom_id(birthday_buddy, "show") %>" class="text-primary-400 absolute top-2.5 right-2.5 bg-transparent hover:bg-primary-200 hover:text-primary-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-primary-600 dark:hover:text-primary-200">
-      <%= render "shared/svg/x_mark", classes: "size-5" %>
+    <button data-action="click->dialog#closeShowModal" data-modal-toggle="<%= dom_id(birthday_buddy, "show") %>" class="text-primary-700 absolute top-2.5 right-2.5 bg-transparent hover:bg-primary-200 hover:text-primary-950 rounded-lg p-1.5 ml-auto inline-flex items-center dark:hover:bg-primary-600 dark:hover:text-primary-200">
+      <%= render "shared/svg/x_mark", classes: "size-5 sm:size-6 md:size-7" %>
     </button>
   </div>
 
@@ -41,14 +41,11 @@
   <%# Action %>
   <div class="flex justify-evenly">
     <form>
-      <button formmethod="dialog" class="px-5 py-2.5 text-sm md:text-lg lg:text-xl font-medium rounded-lg border focus:ring-4 focus:outline-none  focus:z-10 focus:ring-primary-300 text-seconadry-700 bg-secondary-300 hover:bg-secondary-400 border-secondary-200 dark:bg-gray-700 dark:text-primary-100 dark:border-secondary-500 dark:hover:text-primary-50 dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+      <button formmethod="dialog" class="py-1.5 sm:py-2 px-4 md:px-5 lg:py-2.5 text-lg md:text-xl font-medium rounded-lg border focus:ring-4 focus:outline-none  focus:z-10 focus:ring-primary-300 text-seconadry-700 bg-secondary-300 hover:bg-secondary-400 border-secondary-200 dark:bg-gray-700 dark:text-primary-100 dark:border-secondary-500 dark:hover:text-primary-50 dark:hover:bg-gray-600 dark:focus:ring-gray-600">
           Close
       </button>
     </form>
     <%#  Edit %>
-    <%= link_to edit_birthday_buddy_path(birthday_buddy), class:"text-white inline-flex items-center text-sm md:text-lg lg:text-xl bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" do %>
-      <svg aria-hidden="true" class="mr-1 -ml-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path><path fill-rule="evenodd" d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z" clip-rule="evenodd"></path></svg>
-      Edit
-    <% end %>
+    <%= link_to "Edit", edit_birthday_buddy_path(birthday_buddy), class:"form-submit w-auto py-1.5 sm:py-2 lg:py-2.5 md:px-6" %>
   </div>
 </dialog>
