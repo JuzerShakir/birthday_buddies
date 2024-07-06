@@ -7,13 +7,13 @@
 <%= form_with( model: buddy, data: { controller: "flatpickr"}, class: "grid gap-5" ) do |f| %>
 
   <%# first_name & last_name field %>
-  <%= f.text_field :name, placeholder: "Full Name", class: "form-input sm:text-xl" %>
+  <%= f.text_field :name, placeholder: "Full Name", class: "form-input" %>
 
   <div class="flex gap-5">
     <%# gregorian_birthday %>
     <%= f.date_field :gregorian_birthday, placeholder: "Date Of Birth",  class: "form-input gregorian-date" %>
 
     <%# Submit %>
-    <%= f.submit "Create", data: {turbo_submits_with: "Creating..."}, class: "form-submit w-auto" %>
+    <%= f.submit "Create", data: {turbo_submits_with: "Creating..."}, class: "form-submit w-auto py-2 px-4 md:px-5" %>
   </div>
 <% end %>
