@@ -72,7 +72,10 @@ class BirthdayBuddy < ApplicationRecord
   end
 
   def set_happy_birthday_reminder_email
-    WishBirthdayBuddyJob.set(wait_until: upcoming_gregorian_birthday.at_beginning_of_day).perform_later(self.user, self)
+    at_preferred_zone = self.user.time_zone
+    # send birthday notification email to user on midnight of their time zone
+    their_birthday_day = upcoming_gregorian_birthday.in_time_zone(at_preferred_zone)
+    WishBirthdayBuddyJob.set(wait_until: their_birthday_day).perform_later(self.user, self)
   end
 
   # Custom helper methods

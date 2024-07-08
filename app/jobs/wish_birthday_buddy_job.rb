@@ -4,6 +4,6 @@ class WishBirthdayBuddyJob < ApplicationJob
 
   def perform(*args)
     user, birthday_buddy =  args
-    HappyBirthdayMailer.with(user: , birthday_buddy: ).wish_happy_birthday_email.deliver_later
+    HappyBirthdayMailer.with(user: , birthday_buddy: ).wish_happy_birthday_email
   end
 end
