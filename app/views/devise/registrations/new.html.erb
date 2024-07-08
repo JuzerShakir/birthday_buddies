@@ -20,6 +20,12 @@
             <%= f.email_field :email, autocomplete: "email", placeholder:"name@company.com", class: "form-input" %>
           </div>
 
+          <%# Time Zone %>
+          <div class="field">
+            <%= f.label :time_zone, class: "form-label" %>
+            <%= f.select :time_zone, time_zones, {},  class: "form-input" %>
+          </div>
+
           <%# Password %>
           <div class="field">
             <%= f.label :password, class: "form-label" %>
