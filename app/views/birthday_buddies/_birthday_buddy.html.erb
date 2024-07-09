@@ -5,7 +5,7 @@
       <%= birthday_buddy.name.possessive %>
     </span>
     <span class="font-light dark:font-extralight italic text-sm md:text-base text-secondary-700 dark:text-secondary-400">
-      In <%= time_ago_in_words(birthday_buddy.upcoming_gregorian_birthday) %>
+      In <%= time_ago_in_words(birthday_buddy.upcoming_gregorian_birthday_at_preferred_zone) %>
     </span>
   </p>
 
