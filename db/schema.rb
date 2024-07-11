@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_105903) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_11_151916) do
   create_table "birthday_buddies", force: :cascade do |t|
     t.string "first_name", default: "", null: false
     t.string "last_name", default: ""
@@ -136,8 +136,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_105903) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
+    t.string "first_name", default: ""
+    t.string "last_name", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "time_zone", null: false
