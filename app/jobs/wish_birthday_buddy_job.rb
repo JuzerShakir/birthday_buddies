@@ -4,6 +4,12 @@ class WishBirthdayBuddyJob < ApplicationJob
 
   def perform(*args)
     user, birthday_buddy =  args
+
+    # * send emails on correct birthday / prevents users from getting reminders at wrong dates
+    Time.zone = user.time_zone
+    return if Time.now.midnight != birthday_buddy.upcoming_gregorian_birthday_at_preferred_zone
+
+    birthday_buddy.upcoming_gregorian_birthday_at_preferred_zone
     HappyBirthdayMailer.with(user: , birthday_buddy: ).wish_happy_birthday_email.deliver_now
     update_upcoming_gregorian_birthday(birthday_buddy)
   end
@@ -11,6 +17,7 @@ class WishBirthdayBuddyJob < ApplicationJob
   private
 
   def update_upcoming_gregorian_birthday(person)
+    # updates `upcoming_gregorian_birthday` & enqueues new job to send next birthday reminder
     person.update(upcoming_gregorian_birthday: person.upcoming_gregorian_birthday + 1.year)
   end
 end
