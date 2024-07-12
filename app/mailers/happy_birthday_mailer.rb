@@ -1,5 +1,5 @@
 class HappyBirthdayMailer < ApplicationMailer
-  def wish_happy_birthday_email
+  def wish_happy_gregorian_birthday_email
     @well_wisher = params[:user]
     @birthday_celebrant = params[:birthday_buddy]
 

@@ -9,8 +9,7 @@ class WishGregorianBirthdayBuddyJob < ApplicationJob
     Time.zone = user.time_zone
     return if Time.now.midnight != birthday_buddy.upcoming_gregorian_birthday_at_preferred_zone
 
-    birthday_buddy.upcoming_gregorian_birthday_at_preferred_zone
-    HappyBirthdayMailer.with(user: , birthday_buddy: ).wish_happy_birthday_email.deliver_now
+    HappyBirthdayMailer.with(user: , birthday_buddy: ).wish_happy_gregorian_birthday_email.deliver_now
     update_upcoming_gregorian_birthday(birthday_buddy)
   end
 
