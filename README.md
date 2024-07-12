@@ -54,7 +54,8 @@ Opening the cloned repository
 cd birthday-threads && code .
 ```
 
-> Note: Before moving forward make sure **you have Ruby 3.3.1 version installed** in your system. [Or Download from here](https://gorails.com/setup)
+> [!Important]
+> Before moving forward make sure **you have Ruby 3.3.1 version installed** in your system. [Or Download from here](https://gorails.com/setup)
 
 Install all the dependencies
 
