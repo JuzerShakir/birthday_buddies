@@ -34,7 +34,8 @@ class BirthdayBuddy < ApplicationRecord
   # * Callbacks
   before_save :set_upcoming_gregorian_birthday, if: :will_save_change_to_gregorian_birthday?
   before_save :set_upcoming_hijri_birthday_in_gregorian, if: :will_save_change_to_gregorian_birthday?
-  after_save :set_happy_birthday_reminder_email, if: :saved_change_to_upcoming_gregorian_birthday?
+  # birthday reminders
+  after_save :set_happy_gregorian_birthday_reminder_email, if: :saved_change_to_upcoming_gregorian_birthday?
 
   # * Helper Methods
   include HijriHelpers
@@ -76,10 +77,10 @@ class BirthdayBuddy < ApplicationRecord
     self.upcoming_hijri_birthday_in_gregorian = gregorian_date_of(upcoming_hijri_birthday)
   end
 
-  def set_happy_birthday_reminder_email
+  def set_happy_gregorian_birthday_reminder_email
     their_birthday_day = upcoming_gregorian_birthday_at_preferred_zone
     # send birthday notification email to user on midnight of their time zone
-    WishBirthdayBuddyJob.set(wait_until: their_birthday_day).perform_later(self.user, self)
+    WishGregorianBirthdayBuddyJob.set(wait_until: their_birthday_day).perform_later(self.user, self)
   end
 
   # Custom helper methods
