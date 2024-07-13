@@ -9,7 +9,7 @@ class WishHijriBirthdayBuddyJob < ApplicationJob
 
     # * send emails on correct birthday / prevents users from getting reminders at wrong dates
     Time.zone = user.time_zone
-    return if Time.now.midnight != birthday_buddy.upcoming_hijri_birthday_at_preferred_zone
+    return if Time.zone.now.midnight != birthday_buddy.upcoming_hijri_birthday_at_preferred_zone
 
     HappyBirthdayMailer.with(user: , birthday_buddy: ).wish_happy_hijri_birthday_email.deliver_now
     update_upcoming_hijri_birthday_in_gregorian(birthday_buddy)

@@ -63,13 +63,14 @@ class BirthdayBuddy < ApplicationRecord
 
   def upcoming_gregorian_birthday_at_preferred_zone
     at_preferred_zone = user.time_zone
-    upcoming_gregorian_birthday.in_time_zone(at_preferred_zone)
+    upcoming_gregorian_birthday.in_time_zone(at_preferred_zone).midnight
   end
 
   def upcoming_hijri_birthday_at_preferred_zone
     at_preferred_zone = user.time_zone
-    upcoming_hijri_birthday_in_gregorian.in_time_zone(at_preferred_zone)
+    upcoming_hijri_birthday_in_gregorian.in_time_zone(at_preferred_zone).midnight
   end
+
   private
 
   # callbacks
