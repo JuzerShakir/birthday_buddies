@@ -6,9 +6,10 @@ class WishHappyHijriBirthdayJob < ApplicationJob
   def perform(*args)
     user, birthday_buddy =  args
 
-    # * send emails on correct birthday / prevents users from getting reminders at wrong dates
-    Time.zone = user.time_zone
-    return if Time.zone.now.midnight != birthday_buddy.upcoming_hijri_birthday_at_preferred_zone
+    return if is_birthday_not_today?(
+      time_zone: user.time_zone ,
+      birthdate: birthday_buddy.upcoming_hijri_birthday_at_preferred_zone
+      )
 
     HappyBirthdayMailer.with(user: , birthday_buddy: ).wish_happy_hijri_birthday_email.deliver_now
     update_upcoming_hijri_birthday_in_gregorian(birthday_buddy)
