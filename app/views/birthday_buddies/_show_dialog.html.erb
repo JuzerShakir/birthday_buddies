@@ -1,15 +1,15 @@
-<dialog id="<%= dom_id(birthday_buddy, "show") %>" data-turbo-temporary class="z-40 w-2/3 sm:w-1/2 lg:max-w-md xl:max-w-lg dark:bg-gray-800 bg-primary-100 border-2 border-primary-400 dark:border-secondary-500 rounded-lg shadow backdrop:backdrop-blur-sm space-y-7 md:space-y-8 lg:space-y-9 p-7 md:p-9">
+<dialog id="<%= dom_id(birthday_buddy, "show") %>" data-turbo-temporary class="z-40 w-2/3 sm:w-1/2 lg:max-w-md xl:max-w-lg dark:bg-gray-800 bg-primary-100 border-2 border-primary-400 dark:border-secondary-500 rounded-lg shadow backdrop:backdrop-blur-sm space-y-5 md:space-y-6 lg:space-y-7 p-5 sm:p-6 md:p-7">
   <%# Header %>
   <div class="flex justify-between mb-4 rounded-t sm:mb-5">
     <%# Heading %>
-    <div class="text-xl md:text-2xl lg:text-3xl text-primary-900 dark:text-primary-100">
+    <hgroup class="text-xl md:text-2xl lg:text-3xl text-primary-900 dark:text-primary-100">
       <h3 class="font-semibold ">
         <%=  birthday_buddy.first_name %>
       </h3>
       <h4>
         <%=  birthday_buddy.last_name %>
       </h4>
-    </div>
+    </hgroup>
 
     <!-- Close Button-->
     <button data-action="click->dialog#closeShowModal" data-modal-toggle="<%= dom_id(birthday_buddy, "show") %>" class="text-primary-700 absolute top-2.5 right-2.5 bg-transparent hover:bg-primary-200 hover:text-primary-950 rounded-lg p-1.5 ml-auto inline-flex items-center dark:hover:bg-primary-600 dark:hover:text-primary-200">
@@ -17,9 +17,9 @@
     </button>
   </div>
 
-    <hr class="divider w-3/4">
+  <hr class="divider w-3/4">
 
-  <%# Other detials %>
+  <%# Other details %>
   <dl class="space-y-7">
     <div class="space-y-1">
       <dt class="mb-2 text-lg md:text-xl lg:text-2xl font-semibold tracking-wide leading-none text-secondary-900 dark:text-secondary-300">🎁&nbsp;Upcoming Birthday</dt>
@@ -37,6 +37,14 @@
       </dd>
     </div>
   </dl>
+
+  <hr class="divider w-3/4">
+
+  <%# birthday reminder note %>
+  <div class="flex gap-x-1.5 lg:gap-x-2.5 items-center text-secondary-800/85 md:text-secondary-800/80 dark:text-secondary-200/50">
+    <%= render "shared/svg/envelope" %>
+    <p class= "text-xs md:text-sm font-extralight md:font-light leading-none italic tracking-wider md:tracking-wide">Reminders will be sent at midnight for both birthdays.</p>
+  </div>
 
   <%# Action %>
   <div class="flex justify-evenly">
