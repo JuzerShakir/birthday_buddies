@@ -1,4 +1,4 @@
-class WishHijriBirthdayBuddyJob < ApplicationJob
+class WishHappyHijriBirthdayJob < ApplicationJob
   include HijriHelpers
 
   self.queue_adapter = :solid_queue

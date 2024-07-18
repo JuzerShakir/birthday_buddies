@@ -1,4 +1,5 @@
-class WishGregorianBirthdayBuddyJob < ApplicationJob
+class WishHappyGregorianBirthdayJob < ApplicationJob
+  #TODO move me to the parent class
   self.queue_adapter = :solid_queue
   queue_as :default
 
