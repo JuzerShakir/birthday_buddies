@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: Rails.application.credentials.dig(:mailer, :email)
+  default from: email_address_with_name(Rails.application.credentials.dig(:mailer, :email), "BirthdayBuddies")
   layout "mailer"
 end
