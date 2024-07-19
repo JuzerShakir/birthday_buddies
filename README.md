@@ -128,8 +128,6 @@ Thank you, contributors!
 - Using the Solid Queue for background jobs. ([Issue](https://github.com/rails/solid_queue/issues/253))
 - Sending birthday email reminders to the user exactly on midnight regardless of which time zones they are from.
 
-## 🏆 Takeaways
-
 ## Versioning
 
 Birthday Threads follows Semantic Versioning 2.0 as defined at https://semver.org.
