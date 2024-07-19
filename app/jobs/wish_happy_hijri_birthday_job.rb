@@ -15,9 +15,8 @@ class WishHappyHijriBirthdayJob < ApplicationJob
   private
 
   def update_upcoming_hijri_birthday_in_gregorian
-    h = hijri_date_of(@birthday_buddy.upcoming_hijri_birthday_in_gregorian)
-    upcoming_hijri_birthday = Hijri::Date.new(h.year + 1, h.month, h.day)
-    on_date = gregorian_date_of(upcoming_hijri_birthday)
+    hijri_date = create_future_hijri_birthdate(@birthday_buddy.hijri_birthday)
+    on_date = gregorian_date_of(hijri_date)
 
     @birthday_buddy.update(upcoming_hijri_birthday_in_gregorian: on_date)
   end
