@@ -61,16 +61,6 @@ class BirthdayBuddy < ApplicationRecord
     end
   end
 
-  def upcoming_gregorian_birthday_at_preferred_zone
-    at_preferred_zone = user.time_zone
-    upcoming_gregorian_birthday.in_time_zone(at_preferred_zone).midnight
-  end
-
-  def upcoming_hijri_birthday_at_preferred_zone
-    at_preferred_zone = user.time_zone
-    upcoming_hijri_birthday_in_gregorian.in_time_zone(at_preferred_zone).midnight
-  end
-
   private
 
   # callbacks
@@ -84,13 +74,15 @@ class BirthdayBuddy < ApplicationRecord
   end
 
   def set_happy_gregorian_birthday_reminder_email
-    their_birthday_day = upcoming_gregorian_birthday_at_preferred_zone
+    their_birthday_day = upcoming_gregorian_birthday.in_time_zone(user.time_zone).midnight
+
     # send birthday notification email to user on midnight of their time zone
     WishHappyGregorianBirthdayJob.set(wait_until: their_birthday_day).perform_later(self.user, self)
   end
 
   def set_happy_hijri_birthday_reminder_email
-    their_birthday_day = upcoming_hijri_birthday_at_preferred_zone
+    their_birthday_day =  upcoming_hijri_birthday_in_gregorian.in_time_zone(user.time_zone).midnight
+
     # send birthday notification email to user on midnight of their time zone
     WishHappyHijriBirthdayJob.set(wait_until: their_birthday_day).perform_later(self.user, self)
   end
