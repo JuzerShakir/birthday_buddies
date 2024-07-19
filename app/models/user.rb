@@ -8,11 +8,12 @@
 #  confirmed_at           :datetime
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  first_name             :string           default(""), not null
-#  last_name              :string           default(""), not null
+#  first_name             :string           default("")
+#  last_name              :string           default("")
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
+#  time_zone              :string           not null
 #  unconfirmed_email      :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -30,6 +31,8 @@ class User < ApplicationRecord
 
   has_many :birthday_buddies, dependent: :destroy
   has_person_name
+
+  validates_presence_of :time_zone
 
   broadcasts_refreshes
 

@@ -126,9 +126,8 @@ Thank you, contributors!
 - Show & open dialog of the right birthday buddy.
 - Calculating the right hijri dates with the `hijri` gem as it shows previous date.
 - Calculating next gregorian birthday & hijri birthday to set reminders.
-- Making `bundle exec rake solid_queue:start` to listen for queued jobs.
-
-## 🏆 Takeaways
+- Using the Solid Queue for background jobs. ([Issue](https://github.com/rails/solid_queue/issues/253))
+- Sending birthday email reminders to the user exactly on midnight regardless of which time zones they are from.
 
 ## Versioning
 

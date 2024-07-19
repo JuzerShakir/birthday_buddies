@@ -34,6 +34,9 @@ class BirthdayBuddy < ApplicationRecord
   # * Callbacks
   before_save :set_upcoming_gregorian_birthday, if: :will_save_change_to_gregorian_birthday?
   before_save :set_upcoming_hijri_birthday_in_gregorian, if: :will_save_change_to_gregorian_birthday?
+  # birthday reminders
+  after_save :set_happy_gregorian_birthday_reminder_email, if: :saved_change_to_upcoming_gregorian_birthday?
+  after_save :set_happy_hijri_birthday_reminder_email, if: :saved_change_to_upcoming_hijri_birthday_in_gregorian?
 
   # * Helper Methods
   include HijriHelpers
@@ -43,19 +46,7 @@ class BirthdayBuddy < ApplicationRecord
   end
 
   def upcoming_hijri_birthday
-    # current hijri year
-    current_hijri_year =  hijri_date_of(Date.today).year
-    # create new hijri date with current year
-    hijri_birthday_this_year = new_hijri_birthdate(year: current_hijri_year)
-    # since we cannot check if current hijri date is in future or past we need to convert it to gregorian date
-    date = gregorian_date_of(hijri_birthday_this_year)
-
-    # check if gregorian date of hijri date is in past, if it is then set it in the future
-    if date.future?
-      hijri_birthday_this_year
-    else
-      new_hijri_birthdate(year: current_hijri_year + 1)
-    end
+    create_future_hijri_birthdate(hijri_birthday)
   end
 
   private
@@ -70,9 +61,18 @@ class BirthdayBuddy < ApplicationRecord
     self.upcoming_hijri_birthday_in_gregorian = gregorian_date_of(upcoming_hijri_birthday)
   end
 
-  # Custom helper methods
-  def new_hijri_birthdate(year:)
-    Hijri::Date.new(year, hijri_birthday.month, hijri_birthday.day)
+  def set_happy_gregorian_birthday_reminder_email
+    their_birthday_day = upcoming_gregorian_birthday.in_time_zone(user.time_zone).midnight
+
+    # send birthday notification email to user on midnight of their time zone
+    WishHappyGregorianBirthdayJob.set(wait_until: their_birthday_day).perform_later(self.user, self)
+  end
+
+  def set_happy_hijri_birthday_reminder_email
+    their_birthday_day =  upcoming_hijri_birthday_in_gregorian.in_time_zone(user.time_zone).midnight
+
+    # send birthday notification email to user on midnight of their time zone
+    WishHappyHijriBirthdayJob.set(wait_until: their_birthday_day).perform_later(self.user, self)
   end
 
   # * Custom Validation Methods
