@@ -42,17 +42,6 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "••••••••", class: "form-input" %>
           </div>
 
-          <%# Remember me %>
-          <% if devise_mapping.rememberable? %>
-            <div class="field flex items-center gap-3">
-              <div class="flex items-center">
-                <%= f.check_box :remember_me, class: "form-checkbox" %>
-              </div>
-
-              <%= f.label :remember_me, class: "text-sm sm:text-base md:text-lg font-light text-secondary-900 dark:text-secondary-100" %>
-            </div>
-          <% end %>
-
           <%# Submit %>
           <div class="actions">
             <%= f.submit "Create an account", data: { turbo_submits_with: "Creating..."}, class: "form-submit" %>
