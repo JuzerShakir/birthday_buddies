@@ -14,6 +14,6 @@ class WishHappyGregorianBirthdayJob < ApplicationJob
   private
 
   def update_upcoming_gregorian_birthday
-    @birthday_buddy.update(upcoming_gregorian_birthday: @birthday_buddy.upcoming_gregorian_birthday + 1.year)
+    @birthday_buddy.update(upcoming_gregorian_birthday: @birthday_buddy.upcoming_gregorian_birthday.next_year)
   end
 end
