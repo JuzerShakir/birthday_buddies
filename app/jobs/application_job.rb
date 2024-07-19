@@ -16,6 +16,6 @@ class ApplicationJob < ActiveJob::Base
 
   def is_birthday_not_today?(birthdate:)
     Time.zone = @user.time_zone
-    Time.zone.now.midnight  != birthdate
+    Time.zone.now.to_date  != birthdate
   end
 end

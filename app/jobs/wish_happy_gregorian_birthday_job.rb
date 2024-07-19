@@ -3,7 +3,7 @@ class WishHappyGregorianBirthdayJob < ApplicationJob
 
   def perform(*args)
     # * send emails on correct birthday / prevents users from getting reminders at wrong dates
-    return if is_birthday_not_today?(birthdate: @birthday_buddy.upcoming_gregorian_birthday_at_preferred_zone)
+    return if is_birthday_not_today?(birthdate: @birthday_buddy.upcoming_gregorian_birthday)
 
     HappyBirthdayMailer.with(user: @user, birthday_buddy: @birthday_buddy).wish_happy_gregorian_birthday_email.deliver_now
 
