@@ -63,7 +63,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
   # config.active_job.queue_adapter = :solid_queue
-  # config.active_job.queue_name_prefix = "birthday_threads_production"
+  # config.active_job.queue_name_prefix = "birthday_buddies_production"
 
   # * Mailer configuration
   config.action_mailer.perform_caching = false

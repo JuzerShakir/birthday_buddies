@@ -1,6 +1,6 @@
 <div align="center">
   <img src="app/assets/images/logo.png" width="128" />
-  <h2>Birthday Threads</h2>
+  <h2>Birthday Buddies</h2>
   <p>Sending birthday wishes the moment they matter.</p>
 </div>
 
@@ -28,17 +28,17 @@ We all have loved ones with birthdays scattered throughout the year.
 
 Busy lives can make it easy to forget important dates, leading to missed birthday wishes and potential hurt feelings.
 
-Birthday Threads is your personal birthday manager, ensuring you never miss a loved one's special day again.
+Birthday Buddies is your personal birthday manager, ensuring you never miss a loved one's special day again.
 
 ### Benefits
 
 - ⭐ **Effortless Reminders**: The app automatically reminds you of upcoming birthdays, taking the mental burden of remembering off your shoulders.
 - ⭐ **Meaningful Connections**: Sending timely birthday wishes strengthens relationships with friends and family, showing you care.
-- ⭐ **Peace of Mind**: Birthday Threads eliminates the guilt and stress of forgetting someone's birthday.
+- ⭐ **Peace of Mind**: Birthday Buddies eliminates the guilt and stress of forgetting someone's birthday.
 
 ## 🐦‍🔥 Production
 
-This application is hosted in the production. You can check it out here: [Birthday Threads](https://birthday-threads.fly.dev/)
+This application is hosted in the production. You can check it out here: [Birthday Buddies](https://birthday-threads.fly.dev/)
 
 ## 👩‍💻 Development Setup
 
@@ -131,7 +131,7 @@ Thank you, contributors!
 
 ## Versioning
 
-Birthday Threads follows Semantic Versioning 2.0 as defined at https://semver.org.
+Birthday Buddies follows Semantic Versioning 2.0 as defined at https://semver.org.
 
 ## License
 
