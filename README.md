@@ -45,13 +45,13 @@ This application is hosted in the production. You can check it out here: [Birthd
 Open your terminal and clone this repo into a directory of your choice:
 
 ```
-git@github.com:JuzerShakir/birthday-threads.git
+git@github.com:JuzerShakir/birthday-buddies.git
 ```
 
 Opening the cloned repository
 
 ```
-cd birthday-threads && code .
+cd birthday-buddies && code .
 ```
 
 > [!Important]
@@ -112,7 +112,7 @@ You will need to generate an app password by visiting to 'App Password' in your 
 
 ## 💡 Contributing
 
-If you have problems, please create a [GitHub Issue](https://github.com/JuzerShakir/birthday-threads/issues).
+If you have problems, please create a [GitHub Issue](https://github.com/JuzerShakir/birthday-buddies/issues).
 
 Take a look at the [Contributing](CONTRIBUTING.md) document for
 instructions on setting up the repo on your machine, understanding the codebase,
