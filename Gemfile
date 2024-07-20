@@ -77,5 +77,3 @@ gem "name_of_person", "~> 1.1"
 gem "hijri", "~> 0.6.0"
 
 gem "solid_queue", "~> 0.3.3"
-
-gem "rename", "~> 1.1"
