@@ -38,7 +38,7 @@ Birthday Buddies is your personal birthday manager, ensuring you never miss a lo
 
 ## 🐦‍🔥 Production
 
-This application is hosted in the production. You can check it out here: [Birthday Buddies](https://birthday-threads.fly.dev/)
+This application is hosted in the production. You can check it out here: [Birthday Buddies](https://birthday-buddies.fly.dev/)
 
 ## 👩‍💻 Development Setup
 

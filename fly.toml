@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for birthday-threads on 2024-07-02T20:33:48+05:30
+# fly.toml app configuration file generated for birthday-buddies on 2024-07-20T12:38:50+05:30
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'birthday-threads'
+app = 'birthday-buddies'
 primary_region = 'sin'
 console_command = '/rails/bin/rails console'
 
