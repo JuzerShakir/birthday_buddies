@@ -1,4 +1,4 @@
-<dialog id="<%= dom_id(birthday_buddy, "show") %>" data-turbo-temporary class="z-40 w-2/3 sm:w-1/2 lg:max-w-md xl:max-w-lg dark:bg-gray-800 bg-primary-100 border-2 border-primary-400 dark:border-secondary-500 rounded-lg shadow backdrop:backdrop-blur-sm space-y-5 md:space-y-6 lg:space-y-7 p-5 sm:p-6 md:p-7">
+<dialog id="<%= dom_id(birthday_buddy, "show") %>" data-turbo-temporary class="z-40 w-3/4 sm:w-1/2 lg:max-w-md xl:max-w-lg dark:bg-gray-800 bg-primary-100 border-2 border-primary-400 dark:border-secondary-500 rounded-lg shadow backdrop:backdrop-blur-sm space-y-5 md:space-y-6 lg:space-y-7 p-5 sm:p-6 md:p-7">
   <%# Header %>
   <div class="flex justify-between mb-4 rounded-t sm:mb-5">
     <%# Heading %>
@@ -22,17 +22,31 @@
   <%# Other details %>
   <dl class="space-y-7">
     <div class="space-y-1">
-      <dt class="mb-2 text-lg md:text-xl lg:text-2xl font-semibold tracking-wide leading-none text-secondary-900 dark:text-secondary-300">🎁&nbsp;Upcoming Birthday</dt>
-      <dd class="mb-4 sm:mb-5 text-base md:text-lg lg:text-xl font-medium text-secondary-600 dark:text-secondary-300/80">🗓️&nbsp;<%= readable_date(birthday_buddy.upcoming_gregorian_birthday) %></dd>
+      <div class="flex gap-2 items-end lg:items-center justify-between">
+        <dt class="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide leading-6 text-secondary-900 dark:text-secondary-300">🎁&nbsp;Next Birthday</dt>
+        <span class="font-extralight italic text-sm text-secondary-600 dark:text-secondary-300/80">
+          In <%= time_ago_in_words(birthday_buddy.upcoming_gregorian_birthday) %>
+        </span>
+      </div>
+      <dd class="text-base md:text-lg lg:text-xl font-medium text-secondary-600 dark:text-secondary-300/80">
+        🗓️&nbsp;&nbsp;<%= readable_date(birthday_buddy.upcoming_gregorian_birthday) %>
+      </dd>
     </div>
     <div class="space-y-1">
-      <dt class="mb-2 text-lg md:text-xl lg:text-2xl font-semibold tracking-wide leading-none text-secondary-900 dark:text-secondary-300">🎁&nbsp;Upcoming Waras</dt>
-      <dd class="mb-4 sm:mb-5 text-base md:text-lg lg:text-xl font-medium text-secondary-600 dark:text-secondary-300/80">🗓️&nbsp;<%= readable_date(birthday_buddy.upcoming_hijri_birthday_in_gregorian) %></dd>
+      <div class="flex gap-2 items-end lg:items-center justify-between">
+        <dt class="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide leading-6 text-secondary-900 dark:text-secondary-300">🎁&nbsp;Next Waras</dt>
+        <span class="font-extralight italic text-sm text-secondary-600 dark:text-secondary-300/80">
+          In <%= time_ago_in_words(birthday_buddy.upcoming_hijri_birthday_in_gregorian) %>
+        </span>
+      </div>
+      <dd class="text-base md:text-lg lg:text-xl font-medium text-secondary-600 dark:text-secondary-300/80">
+        🗓️&nbsp;&nbsp;<%= readable_date(birthday_buddy.upcoming_hijri_birthday) %>
+      </dd>
     </div>
     <div class="space-y-1">
-      <dt class="mb-2 text-base md:text-lg lg:text-xl font-semibold tracking-wide leading-none text-secondary-900 dark:text-secondary-300">👶&nbsp;Date of Birth</dt>
+      <dt class="text-base md:text-lg lg:text-xl font-semibold tracking-wide leading-6 text-secondary-900 dark:text-secondary-300">👶&nbsp;Date of Birth</dt>
       <dd class="mb-4 sm:mb-5 text-sm md:text-base lg:text-lg font-light text-secondary-600 dark:text-secondary-300/80">
-        🗓️&nbsp;<%= readable_date(birthday_buddy.gregorian_birthday) %>
+        🗓️&nbsp;&nbsp;<%= readable_date(birthday_buddy.gregorian_birthday) %>
         &nbsp;(<%= readable_date(birthday_buddy.hijri_birthday) %>)
       </dd>
     </div>
@@ -43,7 +57,7 @@
   <%# birthday reminder note %>
   <div class="flex gap-x-1.5 lg:gap-x-2.5 items-center text-secondary-800/85 md:text-secondary-800/80 dark:text-secondary-200/50">
     <%= render "shared/svg/envelope" %>
-    <p class= "text-xs md:text-sm font-extralight md:font-light leading-none italic tracking-wider md:tracking-wide">Reminders will be sent at midnight for both birthdays.</p>
+    <p class= "text-xs md:text-sm font-extralight md:font-light leading-4 italic tracking-wider md:tracking-wide">Reminders will be sent at midnight for both birthdays.</p>
   </div>
 
   <%# Action %>
