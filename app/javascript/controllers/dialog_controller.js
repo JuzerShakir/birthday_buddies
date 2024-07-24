@@ -6,12 +6,12 @@ export default class extends Dialog {
 
 	open() {
 		this.deleteModalTarget.showModal();
-		// To disable scrolling while the modal is open
-		// document.body.classList.add("overflow-hidden");
+		this.toggleScrolling();
 	}
 
 	close() {
 		this.deleteModalTarget.close();
+		this.toggleScrolling();
 	}
 
 	openShowModal(e) {
@@ -21,6 +21,7 @@ export default class extends Dialog {
 		const modalElement = document.getElementById(targetID);
 		// show that modal element
 		modalElement.showModal();
+		this.toggleScrolling();
 	}
 
 	closeShowModal(e) {
@@ -30,5 +31,11 @@ export default class extends Dialog {
 		const modalElement = document.getElementById(targetID);
 		// close that modal element
 		modalElement.close();
+		this.toggleScrolling();
+	}
+
+	toggleScrolling() {
+		// enable or disable scrolling
+		document.body.classList.toggle("overflow-hidden");
 	}
 }

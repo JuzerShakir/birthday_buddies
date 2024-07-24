@@ -62,11 +62,9 @@
 
   <%# Action %>
   <div class="flex justify-evenly">
-    <form>
-      <button formmethod="dialog" class="py-1.5 sm:py-2 px-4 md:px-5 lg:py-2.5 text-lg md:text-xl font-medium rounded-lg border focus:ring-4 focus:outline-none  focus:z-10 focus:ring-primary-300 text-seconadry-700 bg-secondary-300 hover:bg-secondary-400 border-secondary-200 dark:bg-gray-700 dark:text-primary-100 dark:border-secondary-500 dark:hover:text-primary-50 dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-          Close
-      </button>
-    </form>
+    <button data-action="click->dialog#closeShowModal" data-modal-toggle="<%= dom_id(birthday_buddy, "show") %>"  class="py-1.5 sm:py-2 px-4 md:px-5 lg:py-2.5 text-lg md:text-xl font-medium rounded-lg border focus:ring-4 focus:outline-none  focus:z-10 focus:ring-primary-300 text-seconadry-700 bg-secondary-300 hover:bg-secondary-400 border-secondary-200 dark:bg-gray-700 dark:text-primary-100 dark:border-secondary-500 dark:hover:text-primary-50 dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+      Close
+    </button>
     <%#  Edit %>
     <%= link_to "Edit", edit_birthday_buddy_path(birthday_buddy), class:"form-submit w-auto py-1.5 sm:py-2 lg:py-2.5 md:px-6" %>
   </div>
