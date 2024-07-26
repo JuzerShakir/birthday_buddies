@@ -18,7 +18,7 @@
   <% end %>
 
   <%- if devise_mapping.confirmable? && controller_name != 'confirmations' && controller_name != 'registrations' && controller_name != 'passwords' %>
-    <p class="link-label">Didn't receive unlock instructions?
+    <p class="link-label">Didn't receive confirmation instruction?
       <%= link_to "Recieve Now", new_confirmation_path(resource_name) , class: "link" %>
     </p>
   <% end %>
