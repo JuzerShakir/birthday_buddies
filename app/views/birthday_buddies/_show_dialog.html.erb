@@ -25,7 +25,7 @@
       <div class="flex gap-2 items-end lg:items-center justify-between">
         <dt class="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide leading-6 text-secondary-900 dark:text-secondary-300">🎁&nbsp;Next Birthday</dt>
         <span class="font-extralight italic text-sm text-secondary-600 dark:text-secondary-300/80">
-          In <%= time_ago_in_words(birthday_buddy.upcoming_gregorian_birthday) %>
+          In <%= distance_of_gregorian_birthday_in_words(birthday_buddy) %>
         </span>
       </div>
       <dd class="text-base md:text-lg lg:text-xl font-medium text-secondary-600 dark:text-secondary-300/80">
@@ -36,7 +36,7 @@
       <div class="flex gap-2 items-end lg:items-center justify-between">
         <dt class="text-lg md:text-xl lg:text-2xl font-semibold tracking-wide leading-6 text-secondary-900 dark:text-secondary-300">🎁&nbsp;Next Waras</dt>
         <span class="font-extralight italic text-sm text-secondary-600 dark:text-secondary-300/80">
-          In <%= time_ago_in_words(birthday_buddy.upcoming_hijri_birthday_in_gregorian) %>
+          In <%= distance_of_hijri_birthday_in_words(birthday_buddy) %>
         </span>
       </div>
       <dd class="text-base md:text-lg lg:text-xl font-medium text-secondary-600 dark:text-secondary-300/80">
