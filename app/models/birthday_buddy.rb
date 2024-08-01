@@ -25,7 +25,7 @@ class BirthdayBuddy < ApplicationRecord
   belongs_to :user, touch: true
 
   #  * name_of_person
-  has_person_name
+  include HasPersonName
 
   # * Validations
   validates_presence_of :first_name, :gregorian_birthday
