@@ -122,12 +122,12 @@ Thank you, contributors!
 
 ## 💪 Challenges I faced
 
-- Designing UI. (theme, font, navigation flow, responsive layout, etc).
 - Show & open dialog of the right birthday buddy.
 - Calculating the right hijri dates with the `hijri` gem as it shows previous date.
 - Calculating next gregorian birthday & hijri birthday to set reminders.
 - Using the Solid Queue for background jobs. ([Issue](https://github.com/rails/solid_queue/issues/253))
 - Sending birthday email reminders to the user exactly on midnight regardless of which time zones they are from.
+- Designing UI. (theme, font, navigation flow, responsive layout, etc).
 
 ## Versioning
 
