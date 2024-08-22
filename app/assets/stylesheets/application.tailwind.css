@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Customizes the style of the progress bar */
+@keyframes gradient-shift {
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+}
+
+.turbo-progress-bar {
+	/* primary-950, secondary-600, primary-950 */
+	background: linear-gradient(to right, #422006, #ea580c, #422006);
+	background-size: 200% auto;
+	height: 0.25rem;
+	animation: gradient-shift 0.5s linear infinite;
+}
+
 @layer base {
 	h1,
 	h2,
