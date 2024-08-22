@@ -3,6 +3,20 @@
   <head>
     <title>Birthday Buddies</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- Open Graph Tags - Displays rich preview of this site when link is shared -->
+    <meta property="og:title" content="Birthday Buddies" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Birthday Buddies is your all-in-one birthday reminder for gregorian & hijri dates. Now never miss a loved one's special day." />
+    <meta property="og:url" content="<%= root_url %>" />
+    <meta property="og:image" content="<%= image_url("og-image.png") %>" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Birthday Buddies" />
+    <meta name="twitter:description" content="Birthday Buddies is your all-in-one birthday reminder for gregorian & hijri dates. Now never miss a loved one's special day." />
+    <meta name="twitter:url" content="<%= root_url %>" />
+    <meta name="twitter:image" content="<%= image_url("og-image.png") %>" />
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
