@@ -45,3 +45,4 @@
 
 .yarnrc
 .yarn/
+yarn.lock
